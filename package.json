@@ -1,0 +1,29 @@
+{
+  "name": "react-foodapp",
+  "version": "1.0.0",
+  "description": "food-app",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nkrgangavaram/react-foodapp.git"
+  },
+  "keywords": [
+    "food"
+  ],
+  "author": "nkrgangavaram",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nkrgangavaram/react-foodapp/issues"
+  },
+  "homepage": "https://github.com/nkrgangavaram/react-foodapp#readme",
+  "dependencies": {
+    "parcel": "^2.10.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}
