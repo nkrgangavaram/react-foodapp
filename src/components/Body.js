@@ -3,6 +3,7 @@ import ReactDOM  from "react-dom/client";
 import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body =()=>{
 
@@ -14,7 +15,7 @@ const Body =()=>{
       //  corsproxy == "https://corsproxy.io/""
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.406498&lng=78.47724389999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const resp = await data.json();
-        console.log(resp.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+        //console.log(resp.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
         setlistofrest(resp?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setfilteredlistofrest(resp?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants); //optional chaining...
         //optional chaining...
@@ -49,7 +50,10 @@ const Body =()=>{
                 >Top Rated Restaurants</button>
             </div>
                 <div className="res-container">
-                    {filteredlistofrest.map((restaurant)=><RestaurantCard key={restaurant.info.id} respData={restaurant}/>)}               
+                    {filteredlistofrest.map(
+                        (restaurant)=>
+                       <Link key={restaurant.info.id} to={"restaurants/"+restaurant.info.id}> <RestaurantCard  respData={restaurant}/> </Link> 
+                        )}               
             </div>
         </div>
         
