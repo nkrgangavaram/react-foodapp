@@ -80,3 +80,8 @@ background-color: #f0f0f0;
     display: flex;
     padding: 20px;
 }
+
+.user-card{
+    padding: 10px;
+    border: 1px solid black;
+}
