@@ -5,6 +5,7 @@ import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { INITIAL_URL } from "../utils/constants";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body =()=>{
 
@@ -25,6 +26,10 @@ const Body =()=>{
     useEffect(()=>{
         fetchData();
     },[]); 
+
+    const onlineStatus = useOnlineStatus(); //custome hook..
+    if(onlineStatus === false) return <h1> Looks like you are offline....plz check internet</h1>
+    
 
     return listofrest.length === 0?(<Shimmer/>):
         (<div className="body">

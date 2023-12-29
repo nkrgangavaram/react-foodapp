@@ -18,7 +18,7 @@ export class UserClass extends React.Component {
     async componentDidMount(){
     //api calls...
    // console.log(this.props.name+"child componentdidmount");
-    console.log("componentdidmount");
+    //console.log("componentdidmount");
 
    const data = await fetch("https://api.github.com/users/nkrgangavaram");
    const json = await data.json();
@@ -30,11 +30,11 @@ export class UserClass extends React.Component {
 
     componentDidUpdate()
     {
-        console.log("component Didupdate");
+    //    console.log("component Didupdate");
     }
 
     componentWillUnmount(){
-        console.log("component willunmoubt");
+      //  console.log("component willunmoubt");
     }
 
   render() {
