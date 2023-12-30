@@ -1,0 +1,98 @@
+/*
+.header{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+
+.logo{
+width: 100px;
+height: 100px;
+}
+
+.nav-items > ul{
+    display: flex;
+    font-size: 24px;
+    padding: 0px 20px;
+    list-style-type: none;
+}
+.nav-items > ul > li{
+    padding: 10px;
+    margin: 10px;
+}
+
+.res-container{
+    display: flex;
+    flex-wrap: wrap;
+    
+
+}
+
+.res-card{
+    width: 200px;
+    padding: 5px;
+    margin: 5px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+text-align: center;
+background-color: #f0f0f0;
+    
+
+}
+.cuisines{
+    width: 100%;
+    height: 100px;  
+    text-wrap:wrap;
+
+
+}
+.res-card:hover{
+    cursor: pointer;
+    border: 1px solid black;
+
+}
+.search{
+    padding: 10px;
+}
+
+.res-logo{
+    margin: 5px;
+    height: 100px;
+    width: 95%;
+}
+
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.shimmer-card{
+    width: 200px;
+    height: 300px;
+    margin: 20px;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+.loginbtn{
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+.filter{
+    display: flex;
+    padding: 20px;
+}
+
+.user-card{
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.opened-label{
+    background-color: black;
+    color: white;
+    margin: 2px;
+    position: absolute;
+    
+}
+
+*/

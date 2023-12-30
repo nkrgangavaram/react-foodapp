@@ -1,4 +1,4 @@
-import React, { lazy, useState } from "react";
+import React, { Suspense, lazy, useState } from "react";
 import ReactDOM  from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -8,6 +8,8 @@ import Error from "./components/Error";
 import FetchComponent from "../fetchcomponent";
 import { createBrowserRouter,RouterProvider,Outlet } from "react-router-dom";
 import RestaurentMenu from "./components/RestaurentMenu";
+import './style.css'; // Import your styles
+
 //import Grocery from "./components/Grocery";
 
 //lazy loading...
@@ -39,13 +41,16 @@ const AppRouter = createBrowserRouter([
       },
       {
         path:"/contact",
-        element:<Contactus/>
+        element:
+       <Contactus/>
     
       },
       {
+        //laz loading.... for bundle seperation.....
         path:"/grocery",
-        element:<Grocery/>
-    
+        element: (
+          <Suspense fallback={<h1>loading......</h1>}></Suspense>
+        )
       },
       {
         path:"/restaurants/:resid",
