@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 import ReactDOM  from "react-dom/client";
 import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import resList from "../utils/mockData";
@@ -6,6 +6,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { INITIAL_URL } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body =()=>{
 
@@ -31,6 +32,10 @@ const Body =()=>{
 
     const onlineStatus = useOnlineStatus(); //custome hook..
     if(onlineStatus === false) return <h1> Looks like you are offline....plz check internet</h1>
+
+
+    //useContext usgae
+    const {loggedInUser,setLoginName} = useContext(UserContext);
     
 
     return listofrest.length === 0?(<Shimmer/>):
@@ -58,6 +63,11 @@ const Body =()=>{
                 }}
                 >Top Rated Restaurants
                 </button>
+                </div>
+                <div className="filter m-4 p-4 flex items-center">
+                    <label>Username : </label>
+                    <input className="border border-black p-2 m-2"
+                    value ={loggedInUser} onChange={(e)=>{setLoginName(e.target.value)}}></input>
                 </div>
              
             </div>

@@ -9,7 +9,7 @@ function RestaurentMenu() {
     const {resid} = useParams();
    const resInfo = useRestaurantMenu(resid); ///custom hook....
 
-   const[showIndex,setshowIndex] = useState(0);
+   const[showIndex,setshowIndex] = useState(null);
 
     if(resInfo === null)
     { return <Shimmer/> };
@@ -33,18 +33,18 @@ function RestaurentMenu() {
       <h1 className='font-bold my-6 text-2xl'>{name}</h1>
         <p className='font-bold text-lg'>{cuisines.join(",")}</p>
       <p>{avgRating}</p>
-      {categories?.map((category,index)=>(
+      {categories?.map((category,index)=>{
       //controled component parent is controlling the whethe rto show accordon ..
-        <RestaurantCategory
+        return (<RestaurantCategory
          key={category?.card?.card?.title} 
          data={category?.card?.card}
-         showItems = {index === showIndex? true:false}
-         setshowIndex={()=>setshowIndex(index)}/>
-      ))}
-
-      
+         showItems = {index === showIndex ? true:false}
+         getIndex={ ()=>{setshowIndex(index)} }
+        />)}
+        
+      )}    
     </div>
   );
-}
+};
 
-export default RestaurentMenu
+export default RestaurentMenu;

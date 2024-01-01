@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useState } from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import ReactDOM  from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -8,6 +8,7 @@ import Error from "./components/Error";
 import FetchComponent from "../fetchcomponent";
 import { createBrowserRouter,RouterProvider,Outlet } from "react-router-dom";
 import RestaurentMenu from "./components/RestaurentMenu";
+import UserContext from "./utils/UserContext";
 import './style.css'; // Import your styles
 
 //import Grocery from "./components/Grocery";
@@ -16,13 +17,29 @@ import './style.css'; // Import your styles
 const Grocery = lazy(()=>import("./components/Grocery"));
 
 const AppLayout =()=>{
+
+  const [loginName,setLoginName] = useState();
+
+  useEffect(()=>{
+    const data = {
+      name: "Nithin Reddy",
+    }
+    setLoginName(data.name);
+  },[])
+
     return(
-        <div>
+      <UserContext.Provider value={{loggedInUser:loginName , setLoginName}}>
+         <div>
+         <UserContext.Provider value={{loggedInUser:"nkr"}}>
+
                 <Header/>
+                </UserContext.Provider>
+
                 <Outlet/>
         </div>
-);
-}
+      </UserContext.Provider>
+    );     
+};
 
 const AppRouter = createBrowserRouter([
   {

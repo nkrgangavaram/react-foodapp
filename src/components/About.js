@@ -1,3 +1,4 @@
+import UserContext from "../utils/UserContext";
 import User from "./User";
 import UserClass from "./UserClass";
 
@@ -31,6 +32,14 @@ export class About extends Component {
     return (
       <div>
           <h2>welcome to food order app</h2>
+          <div>
+            LoggedIn User:
+            <UserContext.Consumer>
+              {({loggedInUser}) =>(
+                <h1 className="text-lg font-bold">{loggedInUser}</h1>
+              )}
+            </UserContext.Consumer>
+          </div>
             <UserClass name= {"first--class"}/>
             <UserClass name= {"second--class"}/>
            
