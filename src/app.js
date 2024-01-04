@@ -9,7 +9,10 @@ import FetchComponent from "../fetchcomponent";
 import { createBrowserRouter,RouterProvider,Outlet } from "react-router-dom";
 import RestaurentMenu from "./components/RestaurentMenu";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
 import './style.css'; // Import your styles
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 //import Grocery from "./components/Grocery";
 
@@ -28,6 +31,7 @@ const AppLayout =()=>{
   },[])
 
     return(
+      <Provider store={appStore}>
       <UserContext.Provider value={{loggedInUser:loginName , setLoginName}}>
          <div>
          <UserContext.Provider value={{loggedInUser:"nkr"}}>
@@ -38,6 +42,7 @@ const AppLayout =()=>{
                 <Outlet/>
         </div>
       </UserContext.Provider>
+      </Provider>
     );     
 };
 
@@ -60,6 +65,12 @@ const AppRouter = createBrowserRouter([
         path:"/contact",
         element:
        <Contactus/>
+    
+      },
+      {
+        path:"/cart",
+        element:
+       <Cart/>
     
       },
       {
